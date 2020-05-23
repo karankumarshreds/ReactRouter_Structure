@@ -13,8 +13,10 @@ import ThingGenerator from './Components/ThingGenerator';
 function App() {
   return (
     <div className="App">  
+    <Navbar />
+    
       <Switch>
-        
+
         <Route exact path="/" render={() => <VendingMachine/>}/>
         <Route exact path="/soda" render={() => <Soda/>}/>
         <Route exact path="/chips" render={() => <Chips/>}/>
@@ -22,10 +24,10 @@ function App() {
 
         <Route exact path="/ThingGenerator/:NAME"
             render={(props) => <ThingGenerator stuff={props.match.params.NAME} />} />
+        
+        <Route exact render={() => <h1>404 Error</h1>} />
 
       </Switch>
-
-      <Navbar />
 
     </div>
   );
