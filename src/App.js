@@ -13,20 +13,18 @@ import ThingGenerator from './Components/ThingGenerator';
 function App() {
   return (
     <div className="App">  
-    <Navbar />
-    
+      <Navbar />
       <Switch>
-
         <Route exact path="/" render={() => <VendingMachine/>}/>
         <Route exact path="/soda" render={() => <Soda/>}/>
         <Route exact path="/chips" render={() => <Chips/>}/>
         <Route exact path="/chocolates" render={() => <Chocolates/>}/>
-
+        
+        {/* Same thing as above but dyncamic routing */}
         <Route exact path="/ThingGenerator/:NAME"
-            render={(props) => <ThingGenerator stuff={props.match.params.NAME} />} />
+            render={(routerProps) => <ThingGenerator stuff={routerProps.match.params.NAME} />} />
         
         <Route exact render={() => <h1>404 Error</h1>} />
-
       </Switch>
 
     </div>
